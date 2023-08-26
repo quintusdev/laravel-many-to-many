@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 use App\Models\Type;
+use App\Models\Tecnology;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Post extends Model
@@ -19,6 +20,11 @@ class Post extends Model
     public function type(): BelongsTo
     {
         return $this->belongsTo(Type::class); //relazione uno a molti tra post e tipo di post
+    }
+
+    public function tecnologies()
+    {
+        return $this->belongsToMany(Tecnology::class); //relazione molti a molti
     }
     /* faccio la funzione che crea lo slug del titolo */
     public static function generateSlug($title)

@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::create('post_tecnology', function (Blueprint $table) {
-            $table->id();
 
             /* Crea la colonna con un intero chiamato POST_ID */
             $table->unsignedBigInteger('post_id');
@@ -24,8 +23,6 @@ return new class extends Migration
             $table->unsignedBigInteger('tecnology_id');
             /* Creo la foreign key che prende il valore da tecnologies */
             $table->foreign('tecnology_id')->references('id')->on('tecnologies');
-
-            $table->timestamps();
         });
     }
 

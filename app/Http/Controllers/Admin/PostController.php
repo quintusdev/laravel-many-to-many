@@ -7,6 +7,7 @@ use App\Models\Type;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Tecnology;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -32,7 +33,9 @@ class PostController extends Controller
     public function create()
     {
         $types = Type::all();
+        $tecnologies = Tecnology::all();
         return view('admin.posts.create', compact('types'));
+        return view('admin.posts.create', compact('types', 'tecnologies'));
     }
 
     /**
@@ -56,11 +59,15 @@ class PostController extends Controller
 
         $form_data['slug'] =  $post->generateSlug($form_data['title']);
 
+        if ($request->has('tecnologies')) {
+            $post->tecnologies()->attach($request->tecnologies);
+        }
+
         $post->fill($form_data);
 
         $post->save();
 
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.show', $post->id);
     }
 
     /**
@@ -83,8 +90,12 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $types = Type::all();
-        /* rimanda al file edit.blade.php */
+        $tecnologies = Tecnology::all();
+
+        /* rimanda al file edit.blade.php per types*/
         return view('admin.posts.edit', compact('post', 'types'));
+        /* rimanda al file edit.blade.php per tecnology*/
+        return view('admin.posts.edit', compact('post', 'types', 'tecnologies'));
     }
 
     /**
@@ -113,7 +124,11 @@ class PostController extends Controller
 
         $post->update($form_data);
 
-        return redirect()->route('admin.posts.index');
+        if ($request->has('tecnologies')) {
+            $post->tecnologies()->sync($request->tecnologies);
+        }
+
+        return redirect()->route('admin.posts.show', compact('post'));
     }
 
     /**
@@ -124,6 +139,12 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $post->tecnologies()->sync([]);
+
+        Storage::delete($post->image);
+
+        $title_post = $post->title;
+
         /* elimino il post */
         $post->delete();
         /* effettuo il rediresct alla pagina index */

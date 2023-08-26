@@ -43,6 +43,16 @@
                             <div class="text-danger">{{ $messages }}</div>
                         @enderror
                     </div>
+                    {{-- Check box technology --}}
+                    <div class="form-group mt-4">
+                        <p>Seleziona le tecnologie</p>
+                        @foreach ($tecnologies as $technology)
+                            <input type="checkbox" name="tecnologies[]" value="{{ $technology->id }}"
+                                class="form-check-input"
+                                {{ in_array($technology->id, old('tecnologies', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label">{{ $technology->name }}</label>
+                        @endforeach
+                    </div>
                     {{-- Inserimento Contenuto --}}
                     <div class="form-group mt-4">
                         <label class="contol-lable">Contenuto</label>

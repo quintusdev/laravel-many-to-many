@@ -15,6 +15,16 @@
                 </p>
                 <a href="{{ route('admin.posts.index') }}" class="btn btn-sm btn-primary">Ritorna alla lista completa</a>
             </div>
+            <div class="col-12">
+                <strong>Tecnologie:</strong>
+                @if ($posts->technologies)
+                    @foreach ($posts->technologies as $technology)
+                        <a href="" class="btn btn-sm btn-primary">{{ $technology->name }}</a>
+                    @endforeach
+                @else
+                    Non sono presenti tecnologie associate al progetto
+                @endif
+            </div>
         </div>
     </div>
 @endsection

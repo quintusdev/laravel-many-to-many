@@ -50,6 +50,26 @@
                                 <div class="text-danger">{{ $messages }}</div>
                             @enderror
                         </div>
+                        {{-- Edit tecnologyes --}}
+                        <div class="form-group mt-4">
+                            <div>Seleziona la tecnologia</div>
+                            @foreach ($technologies as $item)
+                                <div class="form-check">
+                                    @if ($errors->any())
+                                        <input type="checkbox" name="tecnologies[]" value="{{ $item->id }}"
+                                            class="form-check-input"
+                                            {{ in_array($item->id, old('tecnologies', [])) ? 'checked' : '' }}>
+                                    @else
+                                        <input type="checkbox" name="tecnologies[]" value="{{ $item->id }}"
+                                            class="form-check-input"
+                                            {{ $post->tecnologies->contains($item) ? 'checked' : '' }}>
+                                    @endif
+                                    <label class="form-check-label">
+                                        {{ $item->name }}
+                                    </label>
+                                </div>
+                            @endforeach
+                        </div>
                         <div class="form-group mt-4">
                             <label class="contol-lable">Contenuto</label>
                             <textarea class="form-control @error('content')is-invalid @enderror" name="content" id="content"

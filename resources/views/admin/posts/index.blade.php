@@ -5,10 +5,19 @@
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex justify-content-evenly align-items-center my-5">
-                {{-- Bottone per creare un nuovo post --}}
-                <a class="btn btn-success btn-sm" href="{{ route('admin.posts.create') }}"><strong>Nuovo
-                        Post</strong>
-                </a>
+                <h1>I nostri progetti</h1>
+                <div class="btn-container">
+                    <div class="btn-container d-flex">
+                        <div class="btn-container">
+                            <a href="{{ Route('admin.posts.create') }}"><button class="btn btn-success">Crea
+                                    progetto</button></a>
+                        </div>
+                        <div class="btn-container ms-4">
+                            <a href="{{ Route('admin.tecnologies.index') }}"><button class="btn btn-warning">Modifica le
+                                    tecnologies</button></a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-12">
                 <table class="table table-striped">
@@ -52,7 +61,6 @@
                     </tbody>
                 </table>
             </div>
+            @include('admin.partials.modal_delete')
         </div>
-    </div>
-    @include('admin.partials.modal_delete')
-@endsection
+    @endsection

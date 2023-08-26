@@ -23,7 +23,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($techs as $post)
+                        @foreach ($technologies as $post)
                             <tr>
                                 <th class="bg-primary-subtle fw-bold" scope="row">{{ $post->id }}</th>
                                 <td class="bg-primary-subtle fw-bold">{{ $post->name }}</td>

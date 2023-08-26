@@ -110,7 +110,13 @@
                                     </a>
                                     <a href="#"
                                         class="list-group-item list-group-item-action py-2 ripple bg-danger fw-bold text-white"><i
-                                            class="fas fa-lock fa-fw me-3"></i><span>User</span></a>
+                                            class="fas fa-lock fa-fw me-3"></i><span>User</span>
+                                    </a>
+                                    {{-- Bottone per creare un nuovo Tag --}}
+                                    <a href="{{ route('admin.tecnologies.index') }}"
+                                        class="list-group-item list-group-item-action py-2 ripple bg-danger fw-bold text-white"><i
+                                            class="fas fa-lock fa-fw me-3"></i><span>Tags</span>
+                                    </a>
                                 </div>
                             </div>
                         </nav>

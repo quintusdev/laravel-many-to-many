@@ -4,12 +4,6 @@
     {{-- TABELLA CONTENENTE I DATI --}}
     <div class="container">
         <div class="row">
-            <div class="col-12 d-flex justify-content-evenly align-items-center my-5">
-                {{-- Bottone per creare un nuovo post --}}
-                <a class="btn btn-success btn-sm" href="{{ route('admin.posts.create') }}"><strong>Nuovo
-                        Post</strong>
-                </a>
-            </div>
             <div class="col-12">
                 <table class="table table-striped">
                     <thead>
@@ -29,18 +23,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($posts as $post)
+                        @foreach ($techs as $post)
                             <tr>
                                 <th class="bg-primary-subtle fw-bold" scope="row">{{ $post->id }}</th>
-                                <td class="bg-primary-subtle fw-bold">{{ $post->title }}</td>
+                                <td class="bg-primary-subtle fw-bold">{{ $post->name }}</td>
                                 <td class="bg-primary-subtle fw-bold">{{ $post->slug }}</td>
                                 <td class="bg-primary-subtle fw-bold">
-                                    <a class="btn btn-success btn-sm" href="{{ route('admin.posts.show', $post->id) }}"><i
+                                    <a class="btn btn-success btn-sm"
+                                        href="{{ route('admin.tecnologies.show', $post->id) }}"><i
                                             class="fas fa-eye"></i></a>
-                                    <a class="btn btn-warning btn-sm" href="{{ route('admin.posts.edit', $post->id) }}"><i
+                                    <a class="btn btn-warning btn-sm"
+                                        href="{{ route('admin.tecnologies.edit', $post->id) }}"><i
                                             class="fas fa-pen"></i></a>
                                     <form class="d-inline-block delete-post-form"
-                                        action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                                        action="{{ route('admin.tecnologies.destroy', $post->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger btn-sm" type="submit"><i

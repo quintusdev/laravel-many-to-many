@@ -16,7 +16,10 @@ class TecnologyController extends Controller
      */
     public function index()
     {
-        //
+        /* Prendo tutto il contenuto della classe Tecnology */
+        $techs = Tecnology::all();
+        /* Visualizzo tutto dentro index passando il parametro TECHS */
+        return view('admin.tecnologies.index', compact('techs'));
     }
 
     /**
@@ -43,12 +46,12 @@ class TecnologyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tecnology  $tecnology
+     * @param  \App\Models\Tecnology  $tech
      * @return \Illuminate\Http\Response
      */
     public function show(Tecnology $tecnology)
     {
-        //
+        return view('admin.tecnologies.show', compact('tecnology'));
     }
 
     /**

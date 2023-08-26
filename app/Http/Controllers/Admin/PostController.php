@@ -34,7 +34,7 @@ class PostController extends Controller
     {
         $types = Type::all();
         $tecnologies = Tecnology::all();
-        return view('admin.posts.create', compact('types'));
+
         return view('admin.posts.create', compact('types', 'tecnologies'));
     }
 
@@ -59,13 +59,13 @@ class PostController extends Controller
 
         $form_data['slug'] =  $post->generateSlug($form_data['title']);
 
-        if ($request->has('tecnologies')) {
-            $post->tecnologies()->attach($request->tecnologies);
-        }
-
         $post->fill($form_data);
 
         $post->save();
+
+        if ($request->has('tecnologies')) {
+            $post->tecnologies()->attach($request->tecnologies);
+        }
 
         return redirect()->route('admin.posts.show', $post->id);
     }

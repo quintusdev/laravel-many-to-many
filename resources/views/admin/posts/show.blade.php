@@ -17,7 +17,7 @@
             </div>
             <div class="col-12">
                 <strong>Tecnologie:</strong>
-                @if ($posts->technologies)
+                @if ($post->technologies)
                     @foreach ($posts->technologies as $technology)
                         <a href="" class="btn btn-sm btn-primary">{{ $technology->name }}</a>
                     @endforeach

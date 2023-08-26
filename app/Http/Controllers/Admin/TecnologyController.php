@@ -17,9 +17,9 @@ class TecnologyController extends Controller
     public function index()
     {
         /* Prendo tutto il contenuto della classe Tecnology */
-        $techs = Tecnology::all();
+        $technologies = Tecnology::all();
         /* Visualizzo tutto dentro index passando il parametro TECHS */
-        return view('admin.tecnologies.index', compact('techs'));
+        return view('admin.tecnologies.index', compact('technologies'));
     }
 
     /**
@@ -29,7 +29,10 @@ class TecnologyController extends Controller
      */
     public function create()
     {
-        //
+        /* Prendo tutto il contenuto della classe Tecnology */
+        $tecnologies = Tecnology::all();
+        /* Visualizzo tutto dentro index passando il parametro TECHS */
+        return view('admin.tecnologies.index', compact('tecnologies'));
     }
 
     /**

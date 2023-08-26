@@ -53,7 +53,7 @@
                         {{-- Edit tecnologyes --}}
                         <div class="form-group mt-4">
                             <div>Seleziona la tecnologia</div>
-                            @foreach ($technologies as $item)
+                            @foreach ($tecnologies as $item)
                                 <div class="form-check">
                                     @if ($errors->any())
                                         <input type="checkbox" name="tecnologies[]" value="{{ $item->id }}"

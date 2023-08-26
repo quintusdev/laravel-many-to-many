@@ -17,9 +17,9 @@ class TecnologySeeder extends Seeder
     public function run()
     {
         /* Creo i tag dentro un array e lo inserisco all'interno di una variabile */
-        $techs = ['HTML', 'CSS', 'Javascript', 'JQuery', 'MySQL', 'VueJS', 'Lavarel', 'Symfony', 'PHP', 'React', 'SASS', 'SCSS'];
+        $tecnologies = ['HTML', 'CSS', 'Javascript', 'JQuery', 'MySQL', 'VueJS', 'Lavarel', 'Symfony', 'PHP', 'React', 'SASS', 'SCSS'];
 
-        foreach ($techs as $tech) {
+        foreach ($tecnologies as $tech) {
             $new_tech = new Tecnology();
 
             $new_tech->name = $tech;

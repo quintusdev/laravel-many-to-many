@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Tecnology;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTecnologyRequest;
 use App\Http\Requests\UpdateTecnologyRequest;
 

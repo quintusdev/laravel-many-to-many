@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\DashboardController as DashboardController;
 use App\Http\Controllers\Admin\PostController as PostController;
+use App\Http\Controllers\Admin\TypeController as TypeController;
+use App\Http\Controllers\Admin\TecnologyController as TecnologyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,8 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::resource('posts', PostController::class);
     /* Creazione rotte di TYPES */
     Route::resource('types', TypeController::class);
+    /* Creazione rotte di TECNOLOGY */
+    Route::resource('tecnologies', TecnologyController::class);
 });
 
 Route::middleware('auth')->group(function () {

@@ -14,6 +14,7 @@ class TecnologySeeder extends Seeder
      */
     public function run()
     {
-        //
+        /* Creo i tag dentro un array e lo inserisco all'interno di una variabile */
+        $tecnologies = ['HTML', 'CSS', 'Javascript', 'JQuery', 'MySQL', 'VueJS', 'Lavarel', 'Symfony', 'PHP', 'React'];
     }
 }

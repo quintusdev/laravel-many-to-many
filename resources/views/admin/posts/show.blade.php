@@ -10,12 +10,6 @@
                 <img src={{ asset('storage/' . $post->image) }}></img>
             </div>
             <div class="col-12">
-                <p>
-                    {{ $post->content }}
-                </p>
-                <a href="{{ route('admin.posts.index') }}" class="btn btn-sm btn-primary">Ritorna alla lista completa</a>
-            </div>
-            <div class="col-12">
                 <strong>Tecnologie:</strong>
                 @if ($post->technologies)
                     @foreach ($posts->technologies as $technology)
@@ -24,6 +18,15 @@
                 @else
                     Non sono presenti tecnologie associate al progetto
                 @endif
+            </div>
+            <div class="col-12">
+                <p>
+                    {{ $post->content }}
+                </p>
+            </div>
+
+            <div class="col-8">
+                <a href="{{ route('admin.posts.index') }}" class="btn btn-sm btn-primary">Ritorna alla lista completa</a>
             </div>
         </div>
     </div>

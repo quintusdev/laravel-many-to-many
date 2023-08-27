@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="my-5"><strong>MODIFICA IL POST</strong></h1>
+                <h1 class="my-5"><strong>MODIFICA LA TECHNOLOGIES</strong></h1>
                 <a href="{{ route('admin.posts.index') }}" class="btn btn-sm btn-primary">Ritorna alla lista completa</a>
             </div>
             <div class="col-12">
@@ -50,7 +50,7 @@
                                 <div class="text-danger">{{ $messages }}</div>
                             @enderror
                         </div>
-                        {{-- Edit technologyes --}}
+                        {{-- Edit tecnologyes --}}
                         <div class="form-group mt-4">
                             <div>Seleziona la tecnologia</div>
                             @foreach ($tecnologies as $item)
@@ -69,9 +69,6 @@
                                     </label>
                                 </div>
                             @endforeach
-                            {{-- @error('technologies')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror --}}
                         </div>
                         <div class="form-group mt-4">
                             <label class="contol-lable">Contenuto</label>

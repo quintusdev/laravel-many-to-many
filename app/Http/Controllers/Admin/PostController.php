@@ -67,7 +67,7 @@ class PostController extends Controller
             $post->tecnologies()->attach($request->tecnologies);
         }
 
-        return redirect()->route('admin.posts.show', $post->id);
+        return redirect()->route('admin.posts.show', $post->id)->with('message', 'Nuovo post creato correttamente');
     }
 
     /**
@@ -92,9 +92,7 @@ class PostController extends Controller
         $types = Type::all();
         $tecnologies = Tecnology::all();
 
-        /* rimanda al file edit.blade.php per types*/
-        return view('admin.posts.edit', compact('post', 'types'));
-        /* rimanda al file edit.blade.php per tecnology*/
+        /* rimanda al file edit.blade.php per post type e tecnology*/
         return view('admin.posts.edit', compact('post', 'types', 'tecnologies'));
     }
 
@@ -148,6 +146,6 @@ class PostController extends Controller
         /* elimino il post */
         $post->delete();
         /* effettuo il rediresct alla pagina index */
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.index')->with('message', "$title_post creato correttamente");
     }
 }

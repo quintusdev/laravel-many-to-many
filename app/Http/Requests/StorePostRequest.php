@@ -26,7 +26,8 @@ class StorePostRequest extends FormRequest
         return [
             'title' => 'required|max:50',
             'image' => 'image|max:250',
-            'type_id' => 'required|exists:types,id'
+            'type_id' => 'required|exists:types,id',
+            'tecnologies_id' => 'exists:tecnologies.id'
         ];
     }
     /* Funzione per gestire i messaggi di errore in ITA */
@@ -40,7 +41,9 @@ class StorePostRequest extends FormRequest
             'image.max'  => "L'indirizzo dell'immagine deve avere al massimo :max caratteri.",
             /* messaggi di errore per la tipologia */
             'type_id.required' => "Devi selezionare una categoria",
-            'type_id.exists' => "Categoria selezionata non valida"
+            'type_id.exists' => "Categoria selezionata non valida",
+            /* messaggi di errore per la tecnologia */
+            'tecnologies_id.exists' => "Selezionare almeno una tecnologia collegata al progetto"
         ];
     }
 }

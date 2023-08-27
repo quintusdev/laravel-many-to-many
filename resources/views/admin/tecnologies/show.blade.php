@@ -10,7 +10,7 @@
                 <p>
                     {{ $tecnology->content }}
                 </p>
-                <a href="{{ route('admin.tecnologies.index') }}" class="btn btn-sm btn-primary">Ritorna alla lista
+                <a href="{{ route('admin.tecnologies.index') }}" class="btn btn-sm btn-primary mx-3">Ritorna alla lista
                     completa dei tag
                 </a>
                 <a href="{{ route('admin.posts.index') }}" class="btn btn-sm btn-primary">Ritorna alla Dashboard

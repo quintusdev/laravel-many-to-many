@@ -24,6 +24,7 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
+            /* REGOLE PER I CAMPI DEL FORM */
             'title' => 'required|max:50',
             'image' => 'image|max:250',
             'type_id' => 'required|exists:types,id',
@@ -34,15 +35,16 @@ class StorePostRequest extends FormRequest
     public function messages()
     {
         return [
+            /* MESSAGGI DI ERRORE DEL TITOLO */
             'title.required' => 'Il titolo è obbligatorio',
             'title.max'  => "Il titolo deve avere meno di :max caratteri.",
-            /* messaggi di errore per l'immagine */
+            /* MESSAGGI DI ERRORE PER L'IMMAGINE */
             'image.image'  => "Il file deve avere una delle seguenti estensioni: jpg, jpeg, png, webp",
             'image.max'  => "L'indirizzo dell'immagine deve avere al massimo :max caratteri.",
-            /* messaggi di errore per la tipologia */
+            /* MESSAGGI DI ERRORE PER LA TIPOLOGIA */
             'type_id.required' => "Devi selezionare una categoria",
             'type_id.exists' => "Categoria selezionata non valida",
-            /* messaggi di errore per la tecnologia */
+            /* MESSAGGI DI ERRORE PER LA TECNOLOGIA */
             'tecnologies_id.exists' => "Selezionare almeno una tecnologia collegata al progetto"
         ];
     }

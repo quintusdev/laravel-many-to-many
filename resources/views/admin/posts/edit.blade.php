@@ -46,26 +46,27 @@
                                         value="{{ $type->id }}">{{ $type->name }}</option>
                                 @endforeach
                             </select>
+                            {{-- GESTIONE ERRORE PER LA CATEGORIA --}}
                             @error('$type->id')
                                 <div class="text-danger">{{ $messages }}</div>
                             @enderror
                         </div>
-                        {{-- Edit technologyes --}}
+                        {{-- EDIT TECHONOLOGIES --}}
                         <div class="form-group mt-4">
                             <div>Seleziona la tecnologia</div>
-                            @foreach ($tecnologies as $item)
+                            @foreach ($tecnologies as $tecnology)
                                 <div class="form-check">
                                     @if ($errors->any())
-                                        <input type="checkbox" name="tecnologies[]" value="{{ $item->id }}"
+                                        <input type="checkbox" name="tecnologies[]" value="{{ $tecnology->id }}"
                                             class="form-check-input"
-                                            {{ in_array($item->id, old('tecnologies', [])) ? 'checked' : '' }}>
+                                            {{ in_array($tecnology->id, old('tecnologies', [])) ? 'checked' : '' }}>
                                     @else
-                                        <input type="checkbox" name="tecnologies[]" value="{{ $item->id }}"
+                                        <input type="checkbox" name="tecnologies[]" value="{{ $tecnology->id }}"
                                             class="form-check-input"
-                                            {{ $post->tecnologies->contains($item) ? 'checked' : '' }}>
+                                            {{ $post->tecnologies->contains($tecnology) ? 'checked' : '' }}>
                                     @endif
                                     <label class="form-check-label">
-                                        {{ $item->name }}
+                                        {{ $tecnology->name }}
                                     </label>
                                 </div>
                             @endforeach
